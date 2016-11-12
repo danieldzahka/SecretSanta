@@ -52,6 +52,7 @@ try:
     server.login(gmail_user, gmail_pwd)
 except:
     print "failed to connect to server"
+    raise
 for assignment in assignments:
     message_text = "{}, your assignment is {}".format(str(assignment[0]),str(assignment[1]))
     msg = MIMEText(message_text)
@@ -62,5 +63,6 @@ for assignment in assignments:
         server.sendmail(gmail_user, getattr(assignment[0],'email'), msg.as_string())
     except:
         print "failed to send email"
+        raise
 server.close()
 print 'success'
