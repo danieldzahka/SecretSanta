@@ -20,6 +20,8 @@ class Participant:
         return self.name
     def __eq__(self,other):
         return self.name == other.name and self.email == other.email
+    def __ne__(self,other):
+        return not (self == other)
 
 givers = Set()
 receivers = Set()
